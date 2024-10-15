@@ -1,0 +1,30 @@
+<div class="flex flex-wrap justify-between gap-4">
+    <div class="w-60 h-32 bg-blue-400 rounded-xl flex justify-evenly items-center shadow-xl">
+        <fa-icon [icon]="userIcon" class="text-5xl"></fa-icon>
+        <div class="text-xl font-bold">
+            <span>User</span>
+            <p>{{dataDashboard.userTotal}}</p>
+        </div>
+    </div>
+    <div class="w-60 h-32 bg-red-400 rounded-xl flex justify-evenly items-center shadow-xl">
+        <fa-icon [icon]="categoryIcon" class="text-5xl"></fa-icon>
+        <div class="text-xl font-bold">
+            <span>Category</span>
+            <p>{{dataDashboard.categoryTotal}}</p>
+        </div>
+    </div>
+    <div class="w-60 h-32 bg-yellow-400 rounded-xl flex justify-evenly items-center shadow-xl">
+        <fa-icon [icon]="productIcon" class="text-5xl"></fa-icon>
+        <div class="text-xl font-bold">
+            <span>Product</span>
+            <p>{{dataDashboard.productTotal}}</p>
+        </div>
+    </div>
+    <div class="w-60 h-32 bg-green-400 rounded-xl flex justify-evenly items-center shadow-xl">
+        <fa-icon [icon]="transactionIcon" class="text-5xl"></fa-icon>
+        <div class="text-xl font-bold">
+            <span>Transaction</span>
+            <p>{{dataDashboard.transactionTotal}}</p>
+        </div>
+    </div>
+</div>

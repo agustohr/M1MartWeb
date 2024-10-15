@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'ReemKufi';
+    /* src: url('../public/assets/fonts/ReemKufi-Regular.ttf') format('truetype'); */
+    src: url('../../../../../public/assets/fonts/ReemKufi-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @layer components {
+    .neo-box {
+        border: solid 2px black;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 1px 2px 0px 1px rgba(0,0,0,1);
+    }
+} */
+:host ::ng-deep .neo-box {
+    border: solid 2px black;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 1px 2px 0px 1px rgba(0,0,0,1);
+}
+
+/* :host ::ng-deep html,
+:host ::ng-deep body {
+    background-color: #fdf1e7;
+    font-family: 'ReemKufi';
+} */
+
+main {
+    background-color: #fdf1e7;
+    font-family: 'ReemKufi';
+}

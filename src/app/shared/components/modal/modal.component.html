@@ -1,0 +1,11 @@
+<div class="modal-layer">
+    <div class="popup-dialog">
+        <div class="modal-header mb-2">
+            <h4 class="text-lg font-bold">{{ title }}</h4>
+            <a href="javascript:void(0)" (click)="closeModal()"><fa-icon [icon]="closeIcon"></fa-icon></a>
+        </div>
+        <div>
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

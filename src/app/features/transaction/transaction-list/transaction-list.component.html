@@ -1,0 +1,47 @@
+<form class="neo-box flex gap-4 p-4 mb-4 items-center">
+    <div class="flex gap-4 items-center">
+        <label for="date" class="min-w-28">Transaction Date</label>
+        <input type="date" class="p-2 border-2 border-black rounded-lg">
+    </div>
+    <div class="w-full">
+        <input type="text" placeholder="Search..." class="w-full p-2 border-2 border-black rounded-lg">
+    </div>
+</form>
+<div class="flex flex-col gap-4">
+    @for (transaction of transactions; track $index) {
+        <div class="neo-box p-4">
+            <div class="flex gap-4 mb-4">
+                <div>
+                    <p>Order Number : {{transaction.invoiceNumber}}</p>
+                    <p>Total Price : {{transaction.totalPrice | currency: 'Rp ': 'symbol': '1.2-2'}}</p>
+                </div>
+                <div>
+                    <p>Order Date : {{transaction.orderDate | date: "dd MMMM yyyy 'at' hh:mm a"}}</p>
+                    <p>Total Product : {{transaction.totalProduct}}</p>
+                </div>
+            </div>
+            <span (click)="transaction.isShowDetail= !transaction.isShowDetail" class="cursor-pointer hover:font-bold hover:text-[#FF6B6B]">
+                @if (!transaction.isShowDetail) {
+                    Show detail products <fa-icon [icon]="arrowDownIcon"></fa-icon>
+                }@else {
+                    Hide detail products <fa-icon [icon]="arrowUpIcon"></fa-icon>
+                }
+            </span>
+            @if (transaction.isShowDetail) {
+                <div>
+                    <p>Products: </p>
+                    @for (detail of transaction.transactionDetails; track $index) {
+                        <div class="flex gap-4 items-center border-t-2 border-black py-2">
+                            <img src={{detail.imgSrc}} alt="" class="border-2 border-black rounded-lg object-contain h-40 w-56">
+                            <div>
+                                <p>Product Name : {{detail.productName}}</p>
+                                <p>Quantity : {{detail.quantity}}</p>
+                                <p>Unit Price : {{detail.unitPrice | currency: 'Rp ': 'symbol': '1.2-2'}}</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>

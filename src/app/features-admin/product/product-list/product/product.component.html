@@ -1,0 +1,13 @@
+<td><img [src]="imgSrc" [alt]="product.name" class="w-20 h-20 object-contain"></td>
+<td>{{ product.name }}</td>
+<td>{{product.category.name}}</td>
+<td>{{product.price | currency: "Rp ": "symbol": "1.2-2"}}</td>
+<td>{{product.stock}}</td>
+<td>{{product.description}}</td>
+<td>{{product.discontinue ? 'Yes' : 'No'}}</td>
+<td>
+    <div class="p-1 flex gap-2 justify-center items-center">
+        <button class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300" [routerLink]="['edit', product.id]">Edit</button>
+        <button class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300" (click)="onDeleteProduct(product.id)">Delete</button>
+    </div>
+</td>

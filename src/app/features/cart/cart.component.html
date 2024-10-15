@@ -1,0 +1,50 @@
+<div class="mx-4">
+    <h1 class="text-2xl font-extrabold text-[#FF6B6B] bg-[#FDFD96] w-fit px-8 mb-4 rounded-full">Cart</h1>
+    <div class="flex gap-4">
+        @if (carts.length !== 0) {
+            <div class="min-h-56 flex flex-[2] flex-col gap-4">
+                <div class="neo-box p-4 w-full h-fit flex justify-between">
+                    <div class="flex gap-4 items-center">
+                        <input type="checkbox" [checked]="isCheckedAll" (change)="checkedAll()" class="w-4 h-4 accent-amber-400 focus:ring-red-500 focus:ring-2 focus:ring-offset-2 hover:cursor-pointer">
+                        <span>Pilih Semua ({{carts.length}})</span>
+                    </div>
+                    <div>
+                        <button (click)="removeAll()" class="text-[#FF6B6B] hover:font-extrabold">Hapus Semua</button>
+                    </div>
+                </div>
+                @for (cart of carts; track $index) {
+                    <div class="neo-box p-4 flex items-center gap-4">
+                        <input type="checkbox" [checked]="cart.checked" (change)="change($index)" class="w-4 h-4 accent-amber-400 focus:ring-red-500 focus:ring-2 focus:ring-offset-2 hover:cursor-pointer">
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex gap-4 items-center">
+                                <img src={{cart.image}} alt="" class="h-24">
+                                <div>
+                                    <p>{{cart.product.productName}}</p>
+                                    <p>Quantity: {{cart.quantity}}</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-center">
+                                <span>{{cart.product.price | currency: 'Rp ': 'symbol': '1.2-2'}}</span>
+                                <fa-icon [icon]="removeIcon" (click)="removeItem(cart.id)" class="text-xl hover:cursor-pointer hover:text-[#FF6B6B]"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+            </div>
+        }@else {
+            <div class="neo-box p-4 max-h-56 flex flex-[2] flex-col gap-4 justify-center items-center">
+                <h5 class="text-xl">Your cart is still empty, lets shopping now!</h5>
+                <button [routerLink]="['/catalog']" class="p-2 px-8 bg-[#F4D738] border-2 border-black rounded-full shadow-[3px_4px_0_2px_rgba(0,0,0,1)] hover:bg-[#FDFD96] active:shadow-[0_0_0_0] active:transition">Shop Now</button>
+            </div>
+        }
+        <div class="neo-box p-4 max-h-fit pb-7 flex flex-1 flex-col gap-4">
+            <h3 class="text-xl font-bold">Shopping Summary</h3>
+            <div class="flex justify-between text-lg">
+                <span>Total</span>
+                <span>{{total | currency: 'Rp ': 'symbol': '1.2-2'}}</span>
+            </div>
+            <button (click)="checkout()" class="p-2 bg-[#F4D738] border-2 border-black rounded-full shadow-[3px_4px_0_2px_rgba(0,0,0,1)] hover:bg-[#FDFD96] active:shadow-[0_0_0_0] active:transition">Beli</button>
+        </div>
+    </div>
+</div>

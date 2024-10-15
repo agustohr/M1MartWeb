@@ -1,0 +1,7 @@
+a.selected {
+    background-color: #eee;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #FF6B6B;
+    text-decoration: underline;
+}

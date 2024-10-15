@@ -1,0 +1,30 @@
+<form class="neo-box flex gap-4 p-4 mb-4">
+    <div>
+        <select class="p-2 border-2 border-black rounded-lg">
+            <option value="">Choose Category</option>
+            <option value="Outfit">Outfit</option>
+            <option value="Electronic">Electronic</option>
+        </select>
+    </div>
+    <div class="w-full">
+        <input type="text" placeholder="Search..." class="w-full p-2 border-2 border-black rounded-lg">
+    </div>
+</form>
+<div class="neo-box bg-[#FDFD96]">
+    <div class="flex flex-wrap justify-center gap-4 p-4">
+        @for (catalog of catalogs; track $index) {
+            <a [routerLink]="['detail', catalog.data.id]">
+                <div class="neo-box w-56 h-56 hover:-translate-y-2">
+                    <div class="w-full min-h-40 border-b-2 border-black">
+                        <img [src]="catalog.imgSrc" [alt]="catalog.data.name" class="object-contain h-40 w-56">
+                    </div>
+                    <div>
+                        <p>{{catalog.data.name}}</p>
+                        <p>{{catalog.data.price | currency: 'Rp ': 'symbol': '1.2-2'}}</p>
+                    </div>
+                </div>
+            </a>
+        }
+        
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<table class="w-full shadow-lg mt-4">
+    <thead class="bg-orange-500">
+        <tr>
+            <th>Invoice Number</th>
+            <th>Buyer Username</th>
+            <th>Total Product</th>
+            <th>Total Price</th>
+            <th>Order Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (orders.length != 0) {
+            @for (order of orders; track $index) {
+                <tr class="odd:bg-white even:bg-orange-100 text-center">
+                    <td>{{ order.invoiceNumber }}</td>
+                    <td>{{ order.buyerUsername }}</td>
+                    <td>{{ order.totalProduct }}</td>
+                    <td>{{ order.totalPrice | currency: "Rp ": "symbol": "1.2-2" }}</td>
+                    <td>{{ order.orderDate | date: 'dd-MM-yyyy' }}</td>
+                    <td class="p-1 flex gap-2 justify-center">
+                        <button (click)="onViewDetail(order.invoiceNumber)" class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300">View</button>
+                    </td>
+                </tr>
+            }
+        }@else {
+            <tr class="text-center">
+                <td colspan="6">No Data Orders</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if(showModal){
+    <app-modal>
+        <app-order-detail [invoiceNumber]="invoiceNumber"></app-order-detail>
+    </app-modal>
+}

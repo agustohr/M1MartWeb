@@ -1,0 +1,12 @@
+<header class="flex justify-end items-center bg-orange-700 text-white h-[10vh] px-4">
+    <div class="flex gap-4">
+        <div class="flex gap-2 hover:font-bold">
+            <fa-icon [icon]="userIcon" class="text-xl"></fa-icon>
+            <span>{{username}}</span>
+        </div>
+        <div class="flex gap-2 hover:font-bold">
+            <fa-icon [icon]="signOutIcon" class="text-xl"></fa-icon>
+            <a (click)="onSignOut()" [routerLink]="['']">Sign Out</a>
+        </div>
+    </div>
+</header>

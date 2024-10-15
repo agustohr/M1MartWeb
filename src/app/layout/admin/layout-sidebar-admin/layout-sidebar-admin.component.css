@@ -1,0 +1,5 @@
+li.selected {
+    background-color: #eee;
+    font-weight: bold;
+    border-radius: 5px;
+}

@@ -1,0 +1,38 @@
+<div class="flex justify-end mt-4">
+    <button class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300" (click)="onAddCategory()">Add Category</button>
+</div>
+
+<table class="w-full shadow-lg mt-4">
+    <thead class="bg-orange-500">
+        <tr>
+            <th>No</th>
+            <th>Category Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (categories.length != 0) {
+            @for (category of categories; track $index) {
+                <tr class="odd:bg-white even:bg-orange-100 text-center">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ category.name }}</td>
+                    <td class="p-1 flex gap-2 justify-center">
+                        <button class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300" (click)="onEditCategory(category)">Edit</button>
+                        <button class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300" (click)="onDeleteCategory(category.id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        }@else {
+            <tr class="text-center">
+                <td colspan="3">No Data Categories</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if(showModal){
+    <app-modal>
+        <app-category-form [category]="category"></app-category-form>
+        <!-- <app-category-form [id]="id"></app-category-form> -->
+    </app-modal>
+}

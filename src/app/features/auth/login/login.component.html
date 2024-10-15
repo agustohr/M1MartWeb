@@ -1,0 +1,21 @@
+<form [formGroup]="form" class="flex flex-col items-center gap-6 mt-4" (ngSubmit)="onSubmit()">
+    <div class="flex min-w-full relative">
+        <input type="text" formControlName="username" placeholder="Username" formControlName="username" class="border-2 border-black rounded-lg flex flex-grow p-2">
+        @if (form.controls.username.touched && form.controls.username.invalid) {
+            @if(form.controls.username.hasError('required')) {
+                <span class="text-red-500 absolute bottom-[-24px]">Username is required</span>
+            }
+        }
+    </div>
+    <div class="flex min-w-full relative">
+        <input type="password" formControlName="password" placeholder="Password" formControlName="password" class="border-2 border-black rounded-lg flex flex-grow p-2">
+        @if (form.controls.password.touched && form.controls.password.invalid) {
+            @if(form.controls.password.hasError('required')) {
+                <span class="text-red-500 absolute bottom-[-24px]">Password is required</span>
+            }
+        }
+    </div>
+    <div class="flex min-w-full">
+        <button type="submit" [disabled]="form.invalid" class="p-2 px-4 hover:bg-[#F4D738] bg-[#FDFD96] border-2 border-black rounded-full shadow-[3px_4px_0_2px_rgba(0,0,0,1)] flex flex-grow justify-center active:shadow-[0_0_0_0] active:transition disabled:cursor-not-allowed disabled:bg-[#FDFD96]">LOGIN</button>
+    </div>
+</form>

@@ -1,0 +1,50 @@
+<header class="absolute inset-x-0 top-0">
+  <div class="flex justify-between items-center bg-[#F4D738] mb-4 h-16 rounded-b-full border-b-2 border-black shadow-[1px_2px_0_1px_rgba(0,0,0,1)]">
+    <h1 class="text-xl font-extrabold italic text-[#FF6B6B] pl-24">M1Mart</h1>
+    <div class="flex gap-4 items-center pr-24">
+      @if (isLoggedIn()) {
+        <a [routerLink]="['catalog']" class="flex gap-2 hover:font-bold hover:text-[#FF6B6B]">
+          <fa-icon [icon]="homeIcon" class="text-xl"></fa-icon>
+          <span>Home</span>
+        </a>
+        <a [routerLink]="['cart']" class="flex gap-2 hover:font-bold hover:text-[#FF6B6B]">
+          <fa-icon [icon]="cartIcon" class="text-xl"></fa-icon>
+          <span>Cart</span>
+        </a>
+        <a [routerLink]="['transaction']" class="flex gap-2 hover:font-bold hover:text-[#FF6B6B]">
+          <fa-icon [icon]="historyIcon" class="text-xl"></fa-icon>
+          <span>Transaction</span>
+        </a>
+        <!-- <span><fa-icon [icon]="userIcon" class="text-xl"></fa-icon></span> -->
+        <div class="relative border-l-2 border-black pl-4" *ngIf="authService.getCurrentUser()?.username as username">
+          <div class="flex items-center gap-2 cursor-pointer" (click)="isProfileClicked = !isProfileClicked">
+            <div class="w-10 h-10 bg-[#FF6B6B] rounded-full flex justify-center items-center font-bold">
+              {{username.charAt(0).toUpperCase()}}
+            </div>
+            <span class="hover:font-bold hover:text-[#FF6B6B]">{{username}}</span>
+          </div>
+          @if (isProfileClicked) {
+            <div (mouseleave)="isProfileClicked = false" class="flex flex-col gap-2 bg-white min-w-40 rounded-lg border-2 border-black absolute top-11 left-4 p-2">
+              <a (click)="onSignOut()" [routerLink]="['']" class="flex gap-2 hover:font-bold hover:text-[#FF6B6B] border-b-2 border-black">
+                <fa-icon [icon]="userIcon" class="text-xl"></fa-icon>
+                <span>View Profile</span>
+              </a>
+              <a (click)="onSignOut()" [routerLink]="['']" class="flex gap-2 hover:font-bold hover:text-[#FF6B6B]">
+                <fa-icon [icon]="signOutIcon" class="text-xl"></fa-icon>
+                <span>Sign Out</span>
+              </a>
+            </div>
+          }
+        </div>
+      }@else {
+        <a [routerLink]="['']" class="hover:font-bold hover:text-[#6c2a2a]">Home</a>
+        <a href="#" class="hover:font-bold hover:text-[#FF6B6B]">About</a>
+        <a href="#" class="hover:font-bold hover:text-[#FF6B6B]">Contact</a>
+        <div class="flex gap-2 hover:font-bold hover:text-[#FF6B6B]">
+          <fa-icon [icon]="signInIcon" class="text-xl"></fa-icon>
+          <a [routerLink]="['/auth']">Sign In</a>
+        </div>
+      }
+    </div>
+  </div>
+</header>

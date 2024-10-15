@@ -1,0 +1,16 @@
+<div class="flex gap-4 items-center w-full min-h-96">
+    <div class="flex flex-1 justify-center">
+        <div class="w-48 h-48 bg-[#FF6B6B] rounded-full flex justify-center items-center">
+            image
+        </div>
+    </div>
+    <div class="flex flex-1 justify-center px-14">
+        <div class="neo-box min-w-full p-4">
+            <nav class="flex justify-center gap-4">
+                <a [routerLink]="['login']" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}" class="hover:text-[#FF6B6B]">Login</a>
+                <a [routerLink]="['signup']" routerLinkActive="selected" class="hover:text-[#FF6B6B]">Signup</a>
+            </nav>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

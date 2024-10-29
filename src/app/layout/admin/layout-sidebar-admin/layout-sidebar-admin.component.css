@@ -1,5 +1,4 @@
-li.selected {
-    background-color: #eee;
+a.selected {
+    background-color: rgb(255, 237, 213);
     font-weight: bold;
-    border-radius: 5px;
 }

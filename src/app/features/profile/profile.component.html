@@ -1,1 +1,17 @@
-<p>profile works!</p>
+<div class="mx-4">
+    <h1 class="text-2xl font-extrabold text-[#FF6B6B] bg-[#FDFD96] w-fit px-8 mb-4 rounded-full">My Profile</h1>
+    <div class="neo-box p-4 flex flex-col gap-4">
+        <div>
+            <h3 class="text-xl font-bold">Username</h3>
+            <p class="text-lg">{{dataProfile.username}}</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-bold">Email</h3>
+            <p class="text-lg">{{dataProfile.email}}</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-bold">Full Name</h3>
+            <p class="text-lg">{{dataProfile.firstName}} {{dataProfile.lastName}}</p>
+        </div>
+    </div>
+</div>

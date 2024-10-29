@@ -5,6 +5,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { JwtService } from './features/auth/jwt.service';
 import { AuthService } from './features/auth/auth.service';
 import { EMPTY } from 'rxjs';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 const initAuth = () => {
   const jwtService = inject(JwtService);
@@ -21,7 +22,7 @@ export const appConfig: ApplicationConfig = {
       provide: APP_INITIALIZER,
       useFactory: initAuth,
       multi: true
-    }
+    }, provideCharts(withDefaultRegisterables())
   ]
 };
 

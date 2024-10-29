@@ -1,5 +1,10 @@
 <div class="flex justify-end mt-4">
-    <button class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300" [routerLink]="['add']">Add Category</button>
+    <button class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300" [routerLink]="['add']">Add Product</button>
+</div>
+
+<div class="flex gap-4" [formGroup] = "formFilter">
+    <input type="text" placeholder="Search Product" formControlName="productName" class="border-2 border-black rounded-lg p-1">
+    <input type="text" placeholder="Search Category" formControlName="categoryName" class="border-2 border-black rounded-lg p-1">
 </div>
 
 <table class="w-full shadow-lg mt-4">
@@ -16,14 +21,30 @@
         </tr>
     </thead>
     <tbody>
-        @if (products.length != 0) {
-            @for (product of products; track $index) {
+        @if (products.data.length != 0) {
+            @for (product of products.data; track $index) {
                 <tr appProduct [product]="product" class="odd:bg-white even:bg-orange-100 text-center"></tr>
             }
         }@else {
             <tr class="text-center">
-                <td colspan="8">No Data Categories</td>
+                <td colspan="8">No Data Products</td>
             </tr>
         }
     </tbody>
+    <tfoot class="bg-orange-500">
+        <tr>
+            <td colspan="8">
+                <div class="flex justify-between p-1">
+                    <div>
+                        <p class="font-semibold">Page {{pageNumber}} of {{totalPages}}</p>
+                    </div>
+                    <div class="flex gap-2">
+                        @for (page of [].constructor(totalPages); track $index) {
+                            <button (click)="onPageChange($index+1)" class="bg-yellow-400 p-1 px-2 font-semibold rounded-lg hover:bg-yellow-300">{{$index+1}}</button>
+                        }
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
 </table>

@@ -20,11 +20,22 @@ import { inject } from '@angular/core';
 import { AuthService } from './features/auth/auth.service';
 import { UnauthorizedComponent } from './features/auth/unauthorized/unauthorized.component';
 import { TransactionComponent } from './features/transaction/transaction.component';
+import { ProfileComponent } from './features/profile/profile.component';
 
 export const routes: Routes = [
     {
         path: "",
-        component: LandingPageComponent,
+        // component: LandingPageComponent,
+        children: [
+            {
+                path: "",
+                component: LandingPageComponent
+            },
+            {
+                path: "detail/:id",
+                component: CatalogDetailComponent
+            }
+        ],
         resolve: {
             layout: setLayout(PageLayout.Customer)
         }
@@ -70,7 +81,7 @@ export const routes: Routes = [
         path: 'admin',
         redirectTo: 'admin/dashboard',
         pathMatch: 'full'
-      },
+    },
     {
         path: "admin",
         resolve: {
@@ -125,6 +136,24 @@ export const routes: Routes = [
                 }
             }
         ]
+    },
+    {
+        path: "profile",
+        component: ProfileComponent,
+        canActivate: [
+            () => {
+                const router = inject(Router);
+                if(inject(AuthService).getCurrentUser()?.role === 'customer') {
+                    return true;
+                }else {
+                    router.navigate(['unauthorized']);
+                    return false;
+                }
+            }
+        ],
+        resolve: {
+            layout: setLayout(PageLayout.Customer)
+        }
     },
     {
         path: "catalog",

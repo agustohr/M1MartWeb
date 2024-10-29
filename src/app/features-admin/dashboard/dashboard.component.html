@@ -27,4 +27,43 @@
             <p>{{dataDashboard.transactionTotal}}</p>
         </div>
     </div>
+    <div class="w-60 h-32 bg-teal-400 rounded-xl flex justify-evenly items-center shadow-xl">
+        <fa-icon [icon]="incomeIcon" class="text-5xl"></fa-icon>
+        <div class="text-xl font-bold">
+            <span>Total Income</span>
+            <p>{{dataDashboard.incomeTotal | currency: 'Rp ': 'symbol': '1.2-2'}}</p>
+        </div>
+    </div>
+</div>
+
+
+<form class="mt-4 text-end" [formGroup]="formFilter">
+    <select class="p-2 border-2 border-black rounded-lg" formControlName="year">
+        <option value="">Choose Year</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+    </select>
+</form>
+<div class="flex gap-4 mt-4">
+    <div class="border-2 border-black rounded-lg w-1/2">
+        <canvas baseChart
+                [datasets]="lineChartDataSalesAmount"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [legend]="lineChartLegend"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+        </canvas>
+    </div>
+    <div class="border-2 border-black rounded-lg w-1/2">
+        <canvas baseChart
+                [datasets]="lineChartDataTotalIncome"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [legend]="lineChartLegend"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+        </canvas>
+    </div>
 </div>

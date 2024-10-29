@@ -10,3 +10,9 @@ export interface Product {
     discontinue: boolean
     image: string
 }
+
+export interface ProductParams {
+  pageNumber: number
+  productName: string
+  categoryName: string
+}

@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                             <div class="flex gap-4 items-center">
-                                <span>{{cart.product.price | currency: 'Rp ': 'symbol': '1.2-2'}}</span>
+                                <span>{{cart.product.price * cart.quantity | currency: 'Rp ': 'symbol': '1.2-2'}}</span>
                                 <fa-icon [icon]="removeIcon" (click)="removeItem(cart.id)" class="text-xl hover:cursor-pointer hover:text-[#FF6B6B]"></fa-icon>
                             </div>
                         </div>

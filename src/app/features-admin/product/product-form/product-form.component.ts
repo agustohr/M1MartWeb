@@ -117,7 +117,6 @@ export class ProductFormComponent implements OnInit {
     const target = event.target as HTMLInputElement;
     if(target.files!.length > 0) {
       const file: File | null = target.files![0];
-      console.log(file);
       
       this.form.patchValue({image: file});
 

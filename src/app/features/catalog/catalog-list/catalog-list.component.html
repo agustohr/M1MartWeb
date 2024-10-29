@@ -1,30 +1,44 @@
-<form class="neo-box flex gap-4 p-4 mb-4">
+<form class="neo-box flex gap-4 p-4 mb-4" [formGroup]="formFilter">
     <div>
-        <select class="p-2 border-2 border-black rounded-lg">
-            <option value="">Choose Category</option>
-            <option value="Outfit">Outfit</option>
-            <option value="Electronic">Electronic</option>
+        <select class="p-2 border-2 border-black rounded-lg" formControlName="categoryName">
+            <option value="">All Category</option>
+            @for (category of categorySelectOptions; track $index) {
+                <option value={{category.name}}>{{category.name}}</option>
+            }
         </select>
     </div>
     <div class="w-full">
-        <input type="text" placeholder="Search..." class="w-full p-2 border-2 border-black rounded-lg">
+        <input type="text" placeholder="Search..." formControlName="productName" class="w-full p-2 border-2 border-black rounded-lg">
     </div>
 </form>
-<div class="neo-box bg-[#FDFD96]">
-    <div class="flex flex-wrap justify-center gap-4 p-4">
-        @for (catalog of catalogs; track $index) {
-            <a [routerLink]="['detail', catalog.data.id]">
-                <div class="neo-box w-56 h-56 hover:-translate-y-2">
-                    <div class="w-full min-h-40 border-b-2 border-black">
-                        <img [src]="catalog.imgSrc" [alt]="catalog.data.name" class="object-contain h-40 w-56">
+<div class="neo-box p-4">
+    @if (catalogs.data.length !== 0) {
+        <div class="flex flex-wrap justify-center gap-4">
+            @for (catalog of catalogs.data; track $index) {
+                <a [routerLink]="['detail', catalog.id]">
+                    <div class="neo-box w-56 h-56 hover:-translate-y-2">
+                        <div class="w-full min-h-40 border-b-2 border-black">
+                            <img [src]="catalog.imgSrc" [alt]="catalog.name" class="object-contain h-40 w-56">
+                        </div>
+                        <div>
+                            <p>{{catalog.name}}</p>
+                            <p>{{catalog.price | currency: 'Rp ': 'symbol': '1.2-2'}}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>{{catalog.data.name}}</p>
-                        <p>{{catalog.data.price | currency: 'Rp ': 'symbol': '1.2-2'}}</p>
-                    </div>
-                </div>
-            </a>
-        }
-        
-    </div>
+                </a>
+            }
+            
+        </div>
+        <div class="neo-box p-2 mt-4">
+            <div class="flex justify-center gap-2">
+                @for (page of [].constructor(catalogs.totalPages); track $index) {
+                    <button (click)="onPageChange($index+1)" class="border-2 border-black bg-[#FF6B6B] text-white px-4 py-2 rounded-lg hover:bg-[#f89494] hover:text-white">{{$index+1}}</button>
+                }
+            </div>
+        </div>
+    }@else {
+        <div class="neo-box p-2 mt-4">
+            <p class="text-center">No data available</p>
+        </div>
+    }
 </div>

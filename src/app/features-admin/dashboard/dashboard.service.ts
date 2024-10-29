@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../app.config';
 import { Observable } from 'rxjs';
 import { ResponseModel } from '../../shared/models/response.model';
-import { Dashboard } from './dashboard.model';
+import { Dashboard, MonthlySalesTrend } from './dashboard.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +14,9 @@ export class DashboardService {
 
   getData(): Observable<ResponseModel<Dashboard>> {
     return this.http.get<ResponseModel<Dashboard>>(this.apiUrl);
-  }                                                 
+  }
+  
+  getMonthlySales(year: number): Observable<ResponseModel<MonthlySalesTrend[]>> {
+    return this.http.get<ResponseModel<MonthlySalesTrend[]>>(`${this.apiUrl}/monthly-sales/${year}`);
+  }
 }

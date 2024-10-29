@@ -1,11 +1,11 @@
 <nav class="">
-    <div class="h-[10vh] text-orange-700 flex justify-center items-center">
+    <div class="h-[10vh] text-orange-500 flex justify-center items-center">
         <h1 class="text-2xl font-extrabold italic">M1Mart</h1>
     </div>
     <ul class="flex flex-col gap-2">
-        <a [routerLink]="['admin/dashboard']" class="text-orange-700 font-bold hover:bg-orange-200 p-2 hover:text-lg text-center"><li routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}">Dashboard</li></a>
-        <a [routerLink]="['admin/category']" class="text-orange-700 font-bold hover:bg-orange-200 p-2 hover:text-lg text-center"><li routerLinkActive="selected">Category</li></a>
-        <a [routerLink]="['admin/product']" class="text-orange-700 font-bold hover:bg-orange-200 p-2 hover:text-lg text-center"><li routerLinkActive="selected">Product</li></a>
-        <a [routerLink]="['admin/order']" class="text-orange-700 font-bold hover:bg-orange-200 p-2 hover:text-lg text-center"><li routerLinkActive="selected">Order</li></a>
+        <a [routerLink]="['admin/dashboard']" class="text-orange-500 font-bold hover:bg-orange-100 p-2 hover:text-lg text-center" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}"><li >Dashboard</li></a>
+        <a [routerLink]="['admin/category']" class="text-orange-500 font-bold hover:bg-orange-100 p-2 hover:text-lg text-center" routerLinkActive="selected"><li >Category</li></a>
+        <a [routerLink]="['admin/product']" class="text-orange-500 font-bold hover:bg-orange-100 p-2 hover:text-lg text-center" routerLinkActive="selected"><li >Product</li></a>
+        <a [routerLink]="['admin/order']" class="text-orange-500 font-bold hover:bg-orange-100 p-2 hover:text-lg text-center" routerLinkActive="selected"><li >Order</li></a>
     </ul>
 </nav>

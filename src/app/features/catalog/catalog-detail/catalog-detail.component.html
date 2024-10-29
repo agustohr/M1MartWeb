@@ -26,7 +26,7 @@
             <span>{{catalog.price * quantity | currency: 'Rp ': 'symbol': '1.2-2'}}</span>
         </div>
         <div class="flex flex-col gap-4">
-            <button class="bg-[#FDFD96] border-2 border-black rounded-full shadow-[3px_4px_0_2px_rgba(0,0,0,1)] hover:bg-[#F4D738] active:shadow-[0_0_0_0] active:transition px-8 w-full">Buy</button>
+            <button (click)="onBuy()" class="bg-[#FDFD96] border-2 border-black rounded-full shadow-[3px_4px_0_2px_rgba(0,0,0,1)] hover:bg-[#F4D738] active:shadow-[0_0_0_0] active:transition px-8 w-full">Buy</button>
             <button (click)="onAddToCart()" class="bg-[#FDFD96] border-2 border-black rounded-full shadow-[3px_4px_0_2px_rgba(0,0,0,1)] hover:bg-[#F4D738] active:shadow-[0_0_0_0] active:transition px-8 w-full">+ Keranjang</button>
         </div>
     </div>

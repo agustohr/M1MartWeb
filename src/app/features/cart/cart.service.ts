@@ -38,8 +38,10 @@ export class CartService {
   }
 
   checkoutCart(data: CheckoutCart): Observable<ResponseModel<Cart>>{
-    console.log(data);
-    
     return this.http.post<ResponseModel<Cart>>(`${this.apiOrderUrl}/checkout`, data);
+  }
+
+  checkoutOneProduct(data: CheckoutCart): Observable<ResponseModel<Cart>>{
+    return this.http.post<ResponseModel<Cart>>(`${this.apiOrderUrl}/checkout-one-product`, data);
   }
 }

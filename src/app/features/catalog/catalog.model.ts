@@ -2,6 +2,7 @@ export interface Catalog {
     id: number
     name: string
     price: number
+    imgSrc: string
 }
 
 export interface CatalogDetail {

@@ -5,120 +5,15 @@
                 WELCOME
             </h1>
             <p class="text-lg text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim rem excepturi iusto! Officiis dolore unde, quam sunt nemo harum ipsam dolor nulla nobis.</p>
-            <button class="mt-4 p-2 px-4 hover:bg-[#F4D738] bg-[#FDFD96] border-2 border-black rounded-full shadow-[3px_4px_0_2px_rgba(0,0,0,1)]">Get Started</button>
+            <button [routerLink]="['auth/login']" class="mt-4 p-2 px-4 hover:bg-[#F4D738] bg-[#FDFD96] border-2 border-black rounded-full shadow-[3px_4px_0_2px_rgba(0,0,0,1)]">Get Started</button>
         </div>
         <div class="flex flex-1 flex-col justify-center items-center">
-            <div class="w-48 h-48 bg-[#FF6B6B] rounded-full flex justify-center items-center">
-                image
+            <div class="w-64 h-w-64 bg-[#FF6B6B] rounded-full flex justify-center items-center">
+                <img src="assets/img/illustration1.png" alt="illustration1" class="w-64">
             </div>
         </div>
     </div>
-    <!-- <form class="neo-box flex gap-4 p-4 mb-4">
-        <div>
-            <select class="p-2 border-2 border-black rounded-lg">
-                <option value="">Choose Category</option>
-                <option value="Outfit">Outfit</option>
-                <option value="Electronic">Electronic</option>
-            </select>
-        </div>
-        <div class="w-full">
-            <input type="text" placeholder="Search..." class="w-full p-2 border-2 border-black rounded-lg">
-        </div>
-    </form> -->
-    <div class="neo-box text-center pt-2 bg-[#FDFD96]">
-        <h1 class="text-3xl font-bold text-[#FF6B6B]">
-            Top Buy
-        </h1>
-        
-        <div class="flex flex-wrap justify-between gap-4 p-4">
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black">
-                    <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black">
-                    <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black ">
-                    <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black ">
-                    <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black ">
-                    <img src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="neo-box text-center pt-2 bg-[#FDFD96] mt-4">
-        <h1 class="text-3xl font-bold text-[#FF6B6B]">
-            News Products
-        </h1>
-        
-        <div class="flex flex-wrap justify-between gap-4 p-4">
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black">
-                    <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black">
-                    <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black ">
-                    <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black ">
-                    <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-            <div class="neo-box w-56 h-56">
-                <div class="w-full min-h-40 border-b-2 border-black ">
-                    <img src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg" alt="" class="object-contain h-40 w-56">
-                </div>
-                <div>
-                    caption
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    <app-top-buy></app-top-buy>
+    <app-news-product></app-news-product>
 </main>

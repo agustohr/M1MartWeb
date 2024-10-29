@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../app.config';
 import { Observable } from 'rxjs';
-import { ResponseModel } from '../../shared/models/response.model';
-import { Product } from './product.model';
+import { Pagination, ResponseModel } from '../../shared/models/response.model';
+import { Product, ProductParams } from './product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,10 @@ export class ProductService {
 
   getAllProducts(): Observable<ResponseModel<Product[]>>{
     return this.http.get<ResponseModel<Product[]>>(this.apiUrl);
+  }
+
+  getAllProductsFiltered({productName, categoryName, pageNumber}: ProductParams): Observable<ResponseModel<Pagination<Product>>>{
+    return this.http.get<ResponseModel<Pagination<Product>>>(`${this.apiUrl}/filter`, {params: {productName, categoryName, pageNumber}});
   }
 
   getProductById(id: number): Observable<ResponseModel<Product>>{

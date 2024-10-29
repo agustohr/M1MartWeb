@@ -25,7 +25,7 @@
           </div>
           @if (isProfileClicked) {
             <div (mouseleave)="isProfileClicked = false" class="flex flex-col gap-2 bg-white min-w-40 rounded-lg border-2 border-black absolute top-11 left-4 p-2">
-              <a (click)="onSignOut()" [routerLink]="['']" class="flex gap-2 hover:font-bold hover:text-[#FF6B6B] border-b-2 border-black">
+              <a [routerLink]="['profile']" class="flex gap-2 hover:font-bold hover:text-[#FF6B6B] border-b-2 border-black">
                 <fa-icon [icon]="userIcon" class="text-xl"></fa-icon>
                 <span>View Profile</span>
               </a>

@@ -1,0 +1,22 @@
+<div class="neo-box text-center pt-2 bg-[#FDFD96] mt-4">
+    <h1 class="text-3xl font-bold text-[#FF6B6B]">
+        News Products
+    </h1>
+    
+    <div class="flex flex-wrap justify-between gap-4 p-4">
+        @for (catalog of newestProducts; track $index) {
+            <a [routerLink]="['detail', catalog.id]">
+                <div class="neo-box w-56 h-56 hover:-translate-y-2">
+                    <div class="w-full min-h-40 border-b-2 border-black">
+                        <img [src]="catalog.imgSrc" [alt]="catalog.name" class="object-contain h-40 w-56">
+                    </div>
+                    <div>
+                        <p>{{catalog.name}}</p>
+                        <p>{{catalog.price | currency: 'Rp ': 'symbol': '1.2-2'}}</p>
+                    </div>
+                </div>
+            </a>
+        }
+        
+    </div>
+</div>
